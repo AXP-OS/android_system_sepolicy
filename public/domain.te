@@ -610,6 +610,9 @@ neverallow {
   -fastbootd
 } metadata_block_device:blk_file { append link rename write open read ioctl lock };
 
+# Select devices have policies prevented by the following neverallow
+attribute misc_block_device_exception;
+
 # No domain other than recovery, update_engine and fastbootd can write to system partition(s).
 neverallow {
   domain
