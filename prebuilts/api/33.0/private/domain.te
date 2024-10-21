@@ -133,6 +133,7 @@ neverallow {
   -recovery
   -ueventd
   -mtectrl
+  -misc_block_device_exception
 } misc_block_device:blk_file { append link relabelfrom rename write open read ioctl lock };
 
 # Limit ability to ptrace or read sensitive /proc/pid files of processes
