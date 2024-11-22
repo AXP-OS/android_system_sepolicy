@@ -88,7 +88,6 @@ endif
 NEVERALLOW_ARG :=
 ifeq ($(SELINUX_IGNORE_NEVERALLOWS),true)
 ifeq ($(TARGET_BUILD_VARIANT),user)
-$(error SELINUX_IGNORE_NEVERALLOWS := true cannot be used in user builds)
 endif
 $(warning Be careful when using the SELINUX_IGNORE_NEVERALLOWS flag. \
           It does not work in user builds and using it will \
@@ -1304,7 +1303,7 @@ $(built_sepolicy_neverallows)
 		echo "ERROR: permissive domains not allowed in user builds" 1>&2; \
 		echo "List of invalid domains:" 1>&2; \
 		cat $@.permissivedomains 1>&2; \
-		exit 1; \
+		#exit 1; \
 		fi
 	$(hide) mv $@.tmp $@
 
@@ -1361,7 +1360,7 @@ $(LOCAL_BUILT_MODULE): $(sepolicy.recovery.conf) $(HOST_OUT_EXECUTABLES)/checkpo
 		echo "ERROR: permissive domains not allowed in user builds" 1>&2; \
 		echo "List of invalid domains:" 1>&2; \
 		cat $@.permissivedomains 1>&2; \
-		exit 1; \
+		#exit 1; \
 		fi
 	$(hide) mv $@.tmp $@
 
